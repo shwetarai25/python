@@ -1,0 +1,95 @@
+windows
+ pip install virtualenv(pip used install third party software)
+activate
+<myenv>/scripts/activate
+linux
+ sudo apt-get install python3-pip
+
+upgrade pip:
+python -m pip install --upgrade pip
+
+create virtualenv
+virtualenv <project/envornment name>
+
+how to activate virtualenv
+source myenv/bin/activate
+
+deactivate the virtualenv
+deactivate
+
+if python 2 version then  python 3.2.5
+virtualenv -p python3 <envname>myenv
+
+to install django
+pip install django==1.11.13(these is lts version of jgango)
+
+to check django install or not
+django-admin --version
+
+it show all s/w in virtual env
+pip list --local
+
+django -admin startproject <projectname>
+
+to run your project
+python manage.py runserver
+
+process :
+step1 :external mywebsite ->views: define the function
+
+step2: external mywebsite-> urls: define the url on particular task perform
+
+step3 : access
+
+ mange.py : parent main project-> settings.py(main prg)-> urls(mainprg)
+
+to create app
+python manage.py startapp appname
+
+
+ <!-------------------------migrate table used in database----------------------------->
+migrate  used to database ka structure django phle s create usko db m create krta h 
+python manage.py migrate
+
+
+python manage.py makemigrations website
+<!--------------------------to run query in python sheell----------------------------------------->
+#why shell used 
+python manage.py shell>app k andr ja k  
+
+from website.models import employee
+Employee.objects.all()# it select all data im database
+
+# it use to filter the record
+ Employee.objects.filter(fname__starswith = "sonu")
+
+
+<!-------------------------------views in browser------------------------------>
+ website-> views.py->
+
+from .models import Employee
+
+def index(request):
+    e=Employee.objects.all() 
+    output = "-".join([str(person.age) for person in e])
+    return HttpResponse(output)
+
+<!-------------------------------using html through templates------------------------------>
+always name folder to give templates  it use default djanfo enjine
+website - >templates - > website- > htmlfile 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
